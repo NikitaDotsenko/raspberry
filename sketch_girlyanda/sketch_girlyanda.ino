@@ -6,9 +6,10 @@ void switchOffAllPins() {
     digitalWrite(pins[i], LOW);
   }
 }
-/*
-   Run diods sequentially
-*/
+
+/**
+ *   Run diods sequentially
+ */
 void runSequentially() {
   delay(500);
 
@@ -19,7 +20,7 @@ void runSequentially() {
   switchOffAllPins();
 }
 
-/*
+/**
  * Run by color pairs.
  */
 void runPairsByColor() {
@@ -35,6 +36,9 @@ void runPairsByColor() {
   switchOffAllPins();
 }
 
+/**
+ * Get odd pins
+ */
 void getOddPins(int* odd, int length) {
   int index = 0;
   for (int i = 0; i < pinsAmount; i++) {
@@ -45,6 +49,9 @@ void getOddPins(int* odd, int length) {
   }
 }
 
+/**
+ * Get even pins
+ */
 void getEvenPins(int* even, int length) {
   int index = 0;
   for (int i = 0; i < pinsAmount; i++) {
@@ -57,7 +64,7 @@ void getEvenPins(int* even, int length) {
 
 
 /**
- * Thid animation pattern.
+ * Run odd-even dioid change pattern.
  */
 void runOddEvenFigure() {
   int odd[3];
@@ -80,6 +87,9 @@ void runOddEvenFigure() {
   }
 }
 
+/**
+ * Run programm.
+ */
 void setup() {
   Serial.begin(9600);
 
@@ -88,7 +98,12 @@ void setup() {
   }
 }
 
+/**
+ * Programm loop.
+ */
 void loop() {
+  runSequentially();
+  delay(1000);
   runPairsByColor();
   delay(1000);
   runOddEvenFigure();
